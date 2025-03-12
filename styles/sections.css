@@ -2,6 +2,23 @@
     img {
         height: 100%;
         object-fit: cover; /* Faz a cobertura de todo o espaço que esta faltando */
+    }
+    
+    .card {
         border-radius: 4px;
+        overflow: hidden; /* O conteúdo extra será cortado */
+        position: relative; /* qualquer elemento filho posicionado de forma absoluta dentro dele será baseado na posição do .card*/
+
+        &::before {  /*utilizando nesting css/poderia ser .card::before{} */
+            content: "";
+            position: absolute;
+            inset: 0; /*  equivale a top: 0; right: 0; bottom: 0; left: 0;  */
+            top: 50%;
+            background: linear-gradient(
+                180deg,
+                transparent 0%,
+                #020617 100%
+            );
+        }
     }
 }
