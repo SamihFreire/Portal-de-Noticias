@@ -45,10 +45,21 @@ img {
     max-width: 100%;
 }
 
+.desktop-only {
+    display: none;
+}
+
 .container {
-    max-width: 1280px;
-    padding-inline: 32px;
+    --max-width: 79em;
+    max-width: min(var(--max-width), 100% - 16px * 2);
+    min-width: 22.5rem;
     margin-inline: auto;
+    overflow-x: hidden;
+
+    .logo {
+        width: 6.25rem;
+        height: 1.25rem;
+    }
 }
 
 main {
@@ -73,4 +84,21 @@ main {
     letter-spacing: 0.04em;
     color: var(--text-color-primary);
     box-shadow: 0px 4px 16px #02061740;
+}
+
+@media (width >= 80em) {
+    .container {
+        --max-width: 80em;
+        padding-inline: 32px;
+        margin-inline: auto;
+
+        .logo {
+            width: 10rem;
+            height: 1.5rem;
+        }
+    }
+
+    .desktop-only {
+        display: initial;
+    }
 }

@@ -23,3 +23,21 @@
     border-inline: none;
     justify-content: space-between;
 }
+
+@media (width < 80em) {
+  #secondary {
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    gap: 2rem;
+    scrollbar-width: none; /* Firefox */
+  }
+
+  #secondary::-webkit-scrollbar {
+    display: none; /* Chrome/Safari */
+  }
+
+  #secondary a {
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+}
