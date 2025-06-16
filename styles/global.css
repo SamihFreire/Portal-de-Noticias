@@ -26,6 +26,7 @@ body {
     font: var(--text);
     color: var(--text-color-primary);
     background-color: var(--bg-color);
+    min-width: 25rem;
 }
 
 a {
@@ -49,10 +50,13 @@ img {
     display: none;
 }
 
+.mobile-only {
+    display: inherit;
+}
+
 .container {
     --max-width: 79em;
     max-width: min(var(--max-width), 100% - 16px * 2);
-    min-width: 22.5rem;
     margin-inline: auto;
     overflow-x: hidden;
 
@@ -64,14 +68,15 @@ img {
 
 main {
     margin-block: 40px;
-    row-gap: 80px;
+    row-gap: 2rem;
     column-gap: 32px;
     grid-template-columns: 2fr 1.4fr;
-
+    
     grid-template-areas: 
     "featured featured"
     "weekly weekly"
-    "ai aside";
+    "ai ai"
+    "aside aside";
 }
 
 .content-tag {
@@ -86,7 +91,7 @@ main {
     box-shadow: 0px 4px 16px #02061740;
 }
 
-@media (width >= 80em) {
+@media (width >= 50em) {
     .container {
         --max-width: 80em;
         padding-inline: 32px;
@@ -99,6 +104,18 @@ main {
     }
 
     .desktop-only {
-        display: initial;
+        display: inherit;
+    }
+
+    .mobile-only {
+        display: none;
+    }
+    
+    & main {
+        row-gap: 5rem;
+        grid-template-areas: 
+        "featured featured"
+        "weekly weekly"
+        "ai aside";
     }
 }

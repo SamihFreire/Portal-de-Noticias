@@ -65,13 +65,13 @@ section header {
 #weekly {
     grid-area: weekly;
 
-    &>div {
-        grid-template-columns: repeat(4, 292px);
-    }
+    /* &>div {
+        grid-template-columns: repeat(4, auto);
+    } */
 
-    img {
+    /* & img {
         height: 160px;
-    }
+    } */
 
     figure {
         position: relative;
@@ -101,6 +101,11 @@ section header {
     h3 {
         margin-block: 8px 4px; /* 8px em cima 4px em baixo */
     }
+
+    p {
+        font: var(--text-sm);
+        color: var(--text-color-secondary);
+    }
 }
 
 aside {
@@ -118,5 +123,46 @@ aside {
         width: 72px;
         aspect-ratio: 1/1;
         object-fit: cover;
+    }
+}
+
+@media (width < 50em) {
+    #featured {
+        .card {
+            .format-image {
+                height: 33rem;
+                width: 100%;
+            }
+
+            img {
+                height: auto;
+                width: 100%;
+            }
+        }
+
+        & div div {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    #weekly {
+        & img {
+            width: 100vw;
+            height: auto;
+            object-fit: cover;
+        }
+    }
+
+    #ai {
+        & article {
+            display: flex;
+            flex-direction: row-reverse;
+
+            & div img {
+                min-width: 5rem;
+                aspect-ratio: 1/1;
+                object-fit: cover;
+            }
+        }
     }
 }

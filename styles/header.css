@@ -24,7 +24,7 @@
     justify-content: space-between;
 }
 
-@media (width < 80em) {
+@media (width < 50em) {
   #secondary {
     overflow-x: auto;
     scroll-behavior: smooth;
